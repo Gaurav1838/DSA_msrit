@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 int top=-1,n;
 
 void push(int a[],int e)
