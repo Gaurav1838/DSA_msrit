@@ -72,9 +72,10 @@ void main()
     printf("Enter the size of the array \n");
     scanf("%d",&n);
     int a[n],e;
+    int ch;
+
     while(1)
     {
-        int ch;
         printf("\n\n1-> insert element \t2->delete element\n3->peak\t\t4->Display\n5->exit\n");
         printf("Enter choice:\n ");
         scanf("%d",&ch);
@@ -92,7 +93,7 @@ void main()
             break;
             default: printf("enter the choice");
             case 5:
-            exit();
+            exit(0);
         }
     }
 }
