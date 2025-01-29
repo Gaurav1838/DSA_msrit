@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 int front =-1;
 int rear = -1;
 int n;
@@ -86,8 +87,8 @@ void main()
 			case 3: 
 				Display(a);
 				break;
-					
-				
+			case 4:
+               			exit(0);
 			default: printf("Enter the choice Correctly");
 			break;
 		}	
