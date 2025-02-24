@@ -37,15 +37,15 @@ void add_score(char name[], int score) {
 
     // Sort leaderboard using Insertion Sort
     for (int i = 1; i < player_count; i++) {
-        struct Player key = leaderboard[i];
+        struct Player temp = leaderboard[i];
         int j = i - 1;
 
         // Move elements that are smaller than key one position ahead
-        while (j >= 0 && leaderboard[j].score < key.score) {
+        while (j >= 0 && leaderboard[j].score < temp.score) {
             leaderboard[j + 1] = leaderboard[j];
             j--;
         }
-        leaderboard[j + 1] = key;
+        leaderboard[j + 1] = temp;
     }
 }
 
