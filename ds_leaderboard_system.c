@@ -13,6 +13,19 @@ struct Player {
 struct Player leaderboard[MAX_PLAYERS];
 int player_count = 0;  // Number of players added
 
+// Function to sort the leaderboard using Bubble Sort
+void sort_leaderboard() {
+    for (int i = 0; i < player_count - 1; i++) {
+        for (int j = 0; j < player_count - i - 1; j++) {
+            if (leaderboard[j].score < leaderboard[j + 1].score) {
+                struct Player temp = leaderboard[j];
+                leaderboard[j] = leaderboard[j + 1];
+                leaderboard[j + 1] = temp;
+            }
+        }
+    }
+}
+
 // Function to add or update a player's score
 void add_score(char name[], int score) {
     // Check if player already exists and update their score
@@ -20,6 +33,7 @@ void add_score(char name[], int score) {
         if (strcmp(leaderboard[i].name, name) == 0) {
             if (score > leaderboard[i].score) {
                 leaderboard[i].score = score; // Update score if it's higher
+                sort_leaderboard(); // Re-sort leaderboard
             }
             return; // Exit function since player already exists
         }
@@ -34,19 +48,9 @@ void add_score(char name[], int score) {
     strcpy(leaderboard[player_count].name, name);
     leaderboard[player_count].score = score;
     player_count++;
-
-    // Sort leaderboard using Insertion Sort
-    for (int i = 1; i < player_count; i++) {
-        struct Player temp = leaderboard[i];
-        int j = i - 1;
-
-        // Move elements that are smaller than key one position ahead
-        while (j >= 0 && leaderboard[j].score < temp.score) {
-            leaderboard[j + 1] = leaderboard[j];
-            j--;
-        }
-        leaderboard[j + 1] = temp;
-    }
+    
+    // Sort leaderboard after adding a new player
+    sort_leaderboard();
 }
 
 // Function to display the leaderboard
