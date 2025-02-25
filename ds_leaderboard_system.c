@@ -3,17 +3,14 @@
 
 #define MAX_PLAYERS 10 
 
-// Structure to store player information
 struct Player {
     char name[50];
     int score;
 };
 
-// Array to store players
 struct Player leaderboard[MAX_PLAYERS];
-int player_count = 0;  // Number of players added
+int player_count = 0;  
 
-// Function to sort the leaderboard using Bubble Sort
 void sort_leaderboard() {
     for (int i = 0; i < player_count - 1; i++) {
         for (int j = 0; j < player_count - i - 1; j++) {
@@ -26,16 +23,14 @@ void sort_leaderboard() {
     }
 }
 
-// Function to add or update a player's score
 void add_score(char name[], int score) {
-    // Check if player already exists and update their score
     for (int i = 0; i < player_count; i++) {
         if (strcmp(leaderboard[i].name, name) == 0) {
             if (score > leaderboard[i].score) {
-                leaderboard[i].score = score; // Update score if it's higher
-                sort_leaderboard(); // Re-sort leaderboard
+                leaderboard[i].score = score; 
+                sort_leaderboard();
             }
-            return; // Exit function since player already exists
+            return; 
         }
     }
 
@@ -44,16 +39,13 @@ void add_score(char name[], int score) {
         return;
     }
 
-    // Add new player to the leaderboard
     strcpy(leaderboard[player_count].name, name);
     leaderboard[player_count].score = score;
     player_count++;
     
-    // Sort leaderboard after adding a new player
     sort_leaderboard();
 }
 
-// Function to display the leaderboard
 void display_leaderboard() {
     printf("\nLeaderboard:\n");
     printf("----------------------\n");
@@ -63,7 +55,6 @@ void display_leaderboard() {
     printf("----------------------\n");
 }
 
-// Main function
 int main() {
     int choice;
     char name[50];
