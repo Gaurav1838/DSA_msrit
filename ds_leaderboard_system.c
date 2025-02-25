@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX_PLAYERS 10  // Maximum players in the leaderboard
+#define MAX_PLAYERS 10 
 
 // Structure to store player information
 struct Player {
