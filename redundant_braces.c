@@ -13,14 +13,15 @@ int top = -1;
 // Function to push an element onto the stack
 void push(char ch) {
     if (top < MAX - 1) {
-        stack[++top] = ch;
+        top = top + 1;  
+        stack[top] = ch; 
     }
 }
 
 // Function to pop an element from the stack
 char pop() {
     if (top != -1) {
-        return stack[top--];
+         return stack[top--];
     }
     return -1;  // Return -1 if stack is empty
 }
