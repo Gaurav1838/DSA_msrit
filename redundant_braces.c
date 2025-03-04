@@ -1,3 +1,5 @@
+// Check for redundant braces- Given a mathematical expression, determine if it contains redundant braces.
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
